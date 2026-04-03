@@ -5,8 +5,10 @@ metadata:
   name: roboshop
   region: us-east-1
 
-nodeGroups:
+managedNodeGroups:
   - name: ng-1
     instanceType: t3.micro
     desiredCapacity: 2
-    capacityType: ON_DEMAND   # ✅ IMPORTANT FIX
+    minSize: 1
+    maxSize: 2
+    capacityType: ON_DEMAND
