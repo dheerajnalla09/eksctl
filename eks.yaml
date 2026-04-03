@@ -11,4 +11,5 @@ managedNodeGroups:
     desiredCapacity: 2
     minSize: 1
     maxSize: 2
+    amiFamily: AmazonLinux2
     capacityType: ON_DEMAND
