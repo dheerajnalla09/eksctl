@@ -4,8 +4,35 @@ kind: ClusterConfig
 metadata:
   name: roboshop
   region: us-east-1
+  tags:
+    environment: dev
+    project: roboshop
+
+availabilityZones: ["us-east-1a"]
+
+iam:
+  withOIDC: true
+
+addons:
+  - name: vpc-cni
+    version: latest
+  - name: coredns
+    version: latest
+  - name: kube-proxy
+    version: latest
 
 managedNodeGroups:
-- name: free-tier
-  instanceType: t3.micro
-  desiredCapacity: 2
+  - name: free-tier
+    instanceTypes: ["t3.micro"]
+    desiredCapacity: 2
+    minSize: 1
+    maxSize: 4
+    labels:
+      role: workload
+    tags:
+      nodegroup-role: workload
+    iam:
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
