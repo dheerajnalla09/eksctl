@@ -8,7 +8,7 @@ metadata:
     environment: dev
     project: roboshop
 
-availabilityZones: ["us-east-1a","us-east-1a"]
+availabilityZones: ["us-east-1a", "us-east-1b"]
 
 iam:
   withOIDC: true
@@ -27,6 +27,7 @@ managedNodeGroups:
     desiredCapacity: 2
     minSize: 1
     maxSize: 4
+    availabilityZones: ["us-east-1a", "us-east-1b"]
     labels:
       role: workload
     tags:
