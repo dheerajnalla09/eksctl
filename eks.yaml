@@ -8,7 +8,7 @@ metadata:
     environment: dev
     project: roboshop
 
-availabilityZones: ["us-east-1a"]
+availabilityZones: ["us-east-1a","us-east-1a"]
 
 iam:
   withOIDC: true
