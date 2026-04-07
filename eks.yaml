@@ -6,9 +6,6 @@ metadata:
   region: us-east-1
 
 managedNodeGroups:
-- name: spot
-  instanceTypes: ["t3.medium","t3.large","c5.large","c5a.large","m5.large"]
-  spot: true
-  desiredCapacity: 8
-  minSize: 4
-  maxSize: 10
+- name: free-tier
+  instanceType: t3.micro
+  desiredCapacity: 2
